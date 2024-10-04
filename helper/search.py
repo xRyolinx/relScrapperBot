@@ -12,7 +12,7 @@ def getContacts(driver):
     
     # check if elements loaded and return
     profiles = driver.find_elements(By.XPATH, "(//ul[@role='list'])[1]/li")
-    print('len: ', len(profiles))
+    print(f"Potentiel profiles: {len(profiles)}")
     
     # get infos
     for profile in profiles:

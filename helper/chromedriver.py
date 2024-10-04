@@ -15,6 +15,12 @@ def launchBrowser(path):
 
     # chrome profile
     options.add_argument(f"--user-data-dir={PROFILE_PATH}")
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
+    
+    # run chrome
+    try:
+        driver = webdriver.Chrome(service=service, options=options)
+        return driver
+    except:
+        print('Une instance de Chrome est deja ouverte ! Veuillez la fermer et relancez le programme.')
+        exit()
 

@@ -18,20 +18,28 @@ def main():
     profiles = []
     i = 1
     
+    # save page start
+    start = int(params['page'])
+    
     # scrap profiles
     for page in range(nb_pages):
         # get url
-        params['page'] = int(params['page']) + page
+        params['page'] = start + page
         url = getUrl(params)
+        print(f"Page - {params['page']}")
         
         # get to link
         driver.get(url)
 
         # get profiles
-        profiles += getContacts(driver)
-        for profile in profiles:
-            print(f"{i}- {profile}")
+        newProfiles = getContacts(driver)
+        for profile in newProfiles:
+            print(f"{i}- {profile['name']}")
             i = i + 1
+        
+        # append to profiles
+        profiles += newProfiles
+        print()
     
     # save to excel
     saveToExcel(profiles)

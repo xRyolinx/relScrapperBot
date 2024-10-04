@@ -44,10 +44,10 @@ def saveToExcel(profiles):
         ])
 
     # set style
-    sheet.column_dimensions["A"].width = 50.0
+    sheet.column_dimensions["A"].width = 30.0
     sheet.column_dimensions["B"].width = 50.0
     sheet.column_dimensions["C"].width = 50.0
-    sheet.column_dimensions["D"].width = 50.0
+    sheet.column_dimensions["D"].width = 20.0
     sheet.column_dimensions["E"].width = 50.0
 
     for row in sheet.iter_rows():
